@@ -228,7 +228,7 @@ select option {
 }
 .form-message {
     position: fixed;
-    top: 70px;
+    top: 90px;
     right: -300px;
     background-color: #009639;
     color: #dee2e6;
@@ -392,7 +392,7 @@ form span {
 }
 @media(max-width:768px){
     footer {
-        font-size: 14pt;
+        font-size: 12pt;
     }
     .slogan2{
     bottom: 8px;
@@ -454,4 +454,5 @@ form span {
     .shade{
         background-color: #212529;
     }
+
 }
