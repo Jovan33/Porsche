@@ -73,7 +73,7 @@ const footerLinks = [
 //footer kontakt sekcija
 const footerContact = [
     { icon: "fa fa-phone", text: "+381 631284792" },
-    { icon: "fa fa-envelope", text: "jovandramariccoja@gmail.com" },
+    { icon: "fa fa-envelope", text: "contact@porsche.de" },
     { icon: "fa-regular fa-compass", text: "Zdravka Celara 8, Belgrade, Serbia" }
 ];
 
@@ -547,4 +547,5 @@ function FormRegex() {
         });
     }
 }
+
 FormRegex();
