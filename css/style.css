@@ -457,11 +457,7 @@ form span {
 }
 @media (max-width: 640px) {
     .slogan1 h1, .slogan2 h1 {
-        font-size: 18pt;
+        font-size: 22pt;
+        width: 165px;
     }
-
 }
-
-
-
-
