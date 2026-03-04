@@ -94,7 +94,7 @@ const carouselImg = [
     {
         image: "img/side-track.jpg",
         slogan1: "2 WEC Manufacturer titles",
-        slogan2: "#Porsche"
+        slogan2: "#Speed"
     },
     {
         image: "img/side-track2.jpg",
@@ -547,4 +547,5 @@ function FormRegex() {
         });
     }
 }
+
 FormRegex();
