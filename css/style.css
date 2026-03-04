@@ -455,3 +455,8 @@ form span {
         background-color: #212529;
     }
 }
+@media (max-width: 640px) {
+    .slogan1 h1, .slogan2 h1 {
+        font-size: 20pt;
+    }
+}
