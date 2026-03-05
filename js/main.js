@@ -230,7 +230,7 @@ function generateFooter() {
             </div>
         </div>
         <!-- copy socijalne mreze -->
-        <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4">
+        <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
             <p>\u00A9 2026 All rights reserved.</p>
             <div class="social-icons d-flex gap-3 fs-4">
                 ${socialLinks.map(link => `
@@ -549,3 +549,4 @@ function FormRegex() {
 }
 
 FormRegex();
+
