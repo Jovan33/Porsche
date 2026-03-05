@@ -103,6 +103,12 @@ const carouselImg = [
     }
 ];
 
+//ucitavamo slike pre pojavljanja
+carouselImg.forEach(item => {
+    const img = new Image();
+    img.src = item.image;
+});
+
 //Hamburger meni zatvara se kad se klikne na link
 const hamburger = document.querySelector(".hamburger");
 const navBar = document.querySelector(".navbar-nav");
