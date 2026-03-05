@@ -133,7 +133,7 @@ header .hleft img {
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
-    background-image: url("../img/all-cars.jpg");
+    background-image: url("../img/CoA.jpg");
     transition: background-image 1s ease-in-out;
 }
 #contact-form {

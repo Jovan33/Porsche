@@ -39,7 +39,7 @@ const cars = [
         image: "img/car99.png",
         number: "#99",
         alt: "#99",
-        team: "Porsche Penske Motorsport",
+        team: "Proton</br>Cmmpetition",
         category: "Hypercar",
         cubeColor: "#e21e19"
     },
@@ -47,7 +47,7 @@ const cars = [
         image: "img/car92.png",
         number: "#92",
         alt: "#92",
-        team: "Porsche Penske Motorsport",
+        team: "Manthey 1st</br>Phorm",
         category: "LMGT3",
         cubeColor: "#009639"
     },
@@ -55,7 +55,7 @@ const cars = [
         image: "img/car85.png",
         number: "#85",
         alt: "#85",
-        team: "Porsche Penske Motorsport",
+        team: "Iron Dames",
         category: "LMGT3",
         cubeColor: "#009639"
     }
@@ -87,19 +87,19 @@ const socialLinks = [
 //carousel slike
 const carouselImg = [
     {
-        image: "img/all-cars.jpg",
+        image: "img/CoA.jpg",
         slogan1: "Driven by Dreams",
-        slogan2: "Porsche Motorsport #Raceborn"
+        slogan2: "Porsche #Raceborn"
     },
     {
-        image: "img/side-track.jpg",
-        slogan1: "#Speed",
-        slogan2: "2 WEC Manufacturer titles"
+        image: "img/manthey-blue.jpg",
+        slogan1: "911 GT3 R",
+        slogan2: "LMGT3"
     },
     {
-        image: "img/side-track2.jpg",
-        slogan1: "680 horsepower",
-        slogan2: "Over 320 km/h"
+        image: "img/manthey-pink.jpg",
+        slogan1: "564 hp",
+        slogan2: "290 km/h"
     }
 ];
 
@@ -316,7 +316,7 @@ if (classFilter) {
     });
 }
 
-//carousel menja svakih 5 sekundi
+//carousel menja slike
 function Carousel() {
     const bg = document.querySelector(".background");
     const s1 = document.querySelector(".slogan1 h1");
@@ -346,7 +346,7 @@ function Carousel() {
         }, 600);
     }
 
-    setInterval(changeSlide, 5000);
+    setInterval(changeSlide, 6000);
 }
 Carousel();
 
