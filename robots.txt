@@ -3,5 +3,3 @@ User-agent: *
 Disallow: /author.html
 
 Allow: /
-
-Sitemap: https://jovan33.github.io/Porsche/sitemap.xml
