@@ -1,0 +1,7 @@
+User-agent: *
+
+Disallow: /author.html
+
+Allow: /
+
+Sitemap: https://github.com/Jovan33/Porsche/sitemap.xml

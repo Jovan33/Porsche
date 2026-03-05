@@ -1,0 +1,463 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    font-family: "Porsche Next";
+    letter-spacing: 0.5px;
+    line-height: var(--bs-body-line-height);
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    background-color: #212529;
+    overflow-x: hidden;
+}
+.mtopbot {
+    margin-top: 150px;
+    margin-bottom: 150px;
+}
+.class-filter {
+    width: auto;
+    padding: 8px 15px;
+    border: 2px solid #546f97;
+    background-color: rgba(33, 37, 41, 0.85);
+    color: #dee2e6;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+.class-filter:focus {
+    outline: none;
+    border-color: #1557c1;
+}
+.class-filter option {
+    background-color: #212529;
+    color: #dee2e6;
+}
+.about-us {
+    color: #dee2e6;
+}
+.about-us h2 {
+    font-size: 28px;
+    letter-spacing: 2px;
+}
+.about-us p {
+    font-size: 17pt;
+    line-height: 1.8;
+    max-width: 950px;
+}
+.partner-logo {
+    height: 180px;
+    width: 180px;
+    object-fit: contain;
+}
+.btn-contact {
+    display: inline-block;
+    padding: 15px 40px;
+    background: #546f97;
+    color: #dee2e6;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    letter-spacing: 2px;
+    transition: 0.3s ease;
+}
+.btn-contact:hover {
+    background: #1557c1;
+    color: #dee2e6;
+}
+footer {
+    color: #dee2e6;
+    font-size: 16pt;
+}
+footer .social-icons i{
+    color: #dee2e6;
+}
+footer .social-icons i:hover {
+    color: #595a5b;
+    transition: color 0.3s ease;
+}
+footer .nav-link {
+    display: inline;
+}
+footer .nav-link:hover {
+    color: #595a5b;
+    transition: color 0.3s ease;
+}
+footer .nav{
+    color: #dee2e6;
+}
+header {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    padding: 10px 40px;
+    z-index: 10;
+    height: 90px;
+}
+header .hleft img {
+    height: 100px;
+    width: 100px;
+    object-fit: contain;
+}
+.divider {
+    width: 100%;
+    height: 3rem;
+    background-color: #0000001a;
+    border: solid rgba(0, 0, 0, .15);
+    border-width: 1px 0;
+    box-shadow: inset 0 .5em 1.5em #0000001a, inset 0 .125em .5em #00000026;
+}
+.bmenu {
+    margin-top: 90px;
+}
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    background-color: #dee2e6;
+}
+.background {
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    background-image: url("../img/all-cars.jpg");
+    transition: background-image 1s ease-in-out;
+}
+#contact-form {
+    max-width: 900px;
+    margin: 0 auto;
+    background: rgba(33, 37, 41, 0.75);
+    padding: 40px;
+    border-radius: 10px;
+}
+form {
+    font-size: 15pt;
+}
+.form-group input[type="text"], .form-group textarea {
+    width: 100%;
+    padding: 12px 0px;
+    border: none;
+    border-bottom: 2px solid #546f97;
+    background-color: rgba(33, 37, 41, 0.75);
+    transition: border-color 0.3s;
+    color: #dee2e6;
+}
+textarea {
+    resize: vertical;
+}
+.radio-group input,label {
+    cursor: pointer;
+    margin-right: 10px;
+    color: #dee2e6;
+}
+input[type="radio"] {
+  transform: scale(1.5);
+}
+select {
+    width: 100%;
+    padding: 12px 0px;
+    border: 2px solid #546f97;
+    background-color: rgba(33, 37, 41, 0.75);
+    font-size: 15pt;
+    color: #dee2e6;
+    transition: border-color 0.3s;
+}
+select:focus {
+    outline: none;
+    border-color: #1557c1;
+}
+select option {
+    color: #dee2e6;
+    background-color: #212529;
+}
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: #1557c1;
+}
+.form-head {
+    margin: 0 0 60px 0;
+    text-align: center;
+    font-weight: 500;
+    font-size: 60px;
+    color: #dee2e6;
+}
+.error {
+    display: block;
+    color: #ff4444 !important;
+    font-size: 15px;
+    margin-top: 5px;
+    min-height: 20px;
+}
+.invalid {
+    border-color: #ff4444 !important;
+}
+.example {
+    display: block;
+    font-size: 15px;
+    margin-top: 5px;
+    min-height: 20px;
+    color: orange;
+}
+.submit-message {
+    cursor: pointer;
+    padding: 15px;
+    background: #546f97;
+    color: #dee2e6;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    width: 100%;
+    letter-spacing: 2px;
+}
+.submit-message:hover {
+    background: #1557c1;
+    transition: background 0.3s ease;
+}
+.form-message {
+    position: fixed;
+    top: 90px;
+    right: -300px;
+    background-color: #009639;
+    color: #dee2e6;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    z-index: 15;
+    transition: right 0.5s ease;
+}
+.form-message.show {
+    right: 20px;
+}
+.slogan1 {
+    position: absolute;
+    top: 150px;
+    left: 50px;
+    z-index: 1;
+    color: #212529;
+    opacity: 1;
+    transition: opacity 0.6s ease;
+}
+.slogan1.fade-out {
+    opacity: 0;
+}
+.author-about h1,p{
+    color: #dee2e6;
+}
+.author p {
+    font-size: 17pt;
+}
+img {
+    border-radius: var(--bs-border-radius) !important;
+}
+.author-img{
+    max-height: 600px;
+    width: 100%;
+    object-fit: cover;
+}
+.slogan1 h1{
+    font-size: 40pt;
+}
+.slogan2 h1{
+    font-size: 40pt;
+}
+.slogan2 {
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    z-index: 1;
+    color: #212529;
+    opacity: 1;
+    transition: opacity 0.6s ease;
+}
+.slogan2.fade-out {
+    opacity: 0;
+}
+.nav-link {
+    color: #dee2e6;
+    transition: color 0.3s ease;
+}
+.navbar-nav .nav-link:hover {
+    color: #595a5b;
+}
+.hright {
+    font-size: 18pt;
+}
+a {
+    position: relative;
+}
+.thispage .nav-link {
+    color: #546f97;
+}
+#middletext {
+    display: block;
+    font-size: 15pt;
+    color: #dee2e6;
+}
+.team-card {
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 27rem;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(60px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.team-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.team-logo {
+    max-height: 60px;
+    overflow: hidden;
+}
+.team-logo img {
+    max-height: 60px;
+}
+.team-car {
+    height: 100px;
+    width: 100%;
+    max-width: 350px;
+    object-fit: contain;
+}
+.team-card span,h2 {
+    color: #dee2e6;
+}
+.team-card .team-logo {
+    background-color: rgb(33, 37, 41);
+    left: 50%;
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%) translateY(-50%);
+    overflow: hidden;
+    max-width: 100%;
+}
+.team-card h2,span{
+    font-size: 27px;
+    letter-spacing: 4px;
+}
+form span {
+    letter-spacing: normal;
+}
+.team-card span {
+    letter-spacing: 3px;
+}
+.team-card .team-logo img {
+    width: 200px;
+}
+.cube {
+    background-color: #e21e19;
+}
+.cube-text {
+    font-size: 11px;
+}
+.pt-8 {
+    padding-top: 40px !important;
+}
+@media (min-width: 992px) {
+    .pb-lg-7 {
+        padding-bottom: 24px !important;
+    }
+}
+@media (min-width: 992px) {
+    .p-lg-7 {
+        padding: 24px !important;
+    }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+    #middletext {
+        display: none;
+    }
+    .partner-logo {
+        height: 145px;
+        width: 145px;
+    }
+    .about-us p {
+        max-width: 700px;
+    }
+}
+@media(max-width:768px){
+    footer {
+        font-size: 14pt;
+    }
+    .slogan2{
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    }
+    .slogan1{
+        right: 50%;
+        transform: translateX(50%);
+        text-align: center;
+    }
+    .slogan1 h1{
+        font-size: 30pt;
+    }
+    .slogan2 h1{
+        font-size: 30pt;
+    }
+    #middletext {
+        display: block;
+    }
+    header{
+        position: fixed;
+    }
+    .hamburger{
+        display: block;
+    }
+    .hamburger.active .bar:nth-child(2){
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    .navbar-nav{
+        position: fixed;
+        left: 100%;
+        top: 90px;
+        gap: 0;
+        flex-direction: column;
+        background-color: #212529;;
+        width: 100%;
+        text-align: center;
+        transition: left 0.3s ease;
+    }
+    .nav-item{
+        margin: 16px 0;
+    }
+    .navbar-nav.active{
+        left: 0;
+    }
+}
+.shade {
+    background-color: #212529; 
+}
+@media (max-width:768px){
+    .shade{
+        background-color: #212529;
+    }
+}
+@media (max-width: 640px) {
+    .slogan1 h1, .slogan2 h1 {
+        font-size: 20pt;
+        width: 150px;
+    }
+}
