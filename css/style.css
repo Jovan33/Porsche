@@ -90,6 +90,9 @@ footer .nav-link:hover {
 footer .nav{
     color: #dee2e6;
 }
+.download-links:hover {
+    color: #595a5b;
+}
 header {
     position: absolute;
     top: 0px;

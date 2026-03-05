@@ -6,7 +6,7 @@ const navLinks = [
     { text: "Contact", href: "contact.html" },
     { text: "Author", href: "author.html" },
     { icon: "fa-regular fa-file-lines", href: "dokumentacija.pdf" },
-    { icon: "fa-solid fa-download", href: "porsche.zip" }
+    { icon: "fa-solid fa-download", href: "Porsche.rar" }
 ];
 
 //wec kola
@@ -547,7 +547,4 @@ function FormRegex() {
         });
     }
 }
-
 FormRegex();
-
-
