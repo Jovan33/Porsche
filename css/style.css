@@ -368,12 +368,6 @@ form span {
 .pt-8 {
     padding-top: 40px !important;
 }
-@media (max-width: 640px){
-    .slogan1 h1, .slogan2 h1 {
-        font-size: 20pt;
-        width: 150px;
-    }
-}
 @media (min-width: 992px) {
     .pb-lg-7 {
         padding-bottom: 24px !important;
@@ -459,5 +453,11 @@ form span {
 @media (max-width:768px){
     .shade{
         background-color: #212529;
+    }
+}
+@media (max-width: 640px) {
+    .slogan1 h1, .slogan2 h1 {
+        font-size: 20pt;
+        width: 150px;
     }
 }
