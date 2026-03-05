@@ -338,12 +338,17 @@ function Carousel() {
         slogan1Div.classList.add("fade-out");
         slogan2Div.classList.add("fade-out");
 
-        setTimeout(() => {
-            current = (current + 1) % carouselImg.length;
-            showSlide(current);
-            slogan1Div.classList.remove("fade-out");
-            slogan2Div.classList.remove("fade-out");
-        }, 600);
+        const next = (current + 1) % carouselImg.length;
+        const img = new Image();
+        img.src = carouselImg[next].image;
+        img.onload = function() {
+            setTimeout(() => {
+                current = next;
+                showSlide(current);
+                slogan1Div.classList.remove("fade-out");
+                slogan2Div.classList.remove("fade-out");
+            }, 600);
+        };
     }
 
     setInterval(changeSlide, 5000);
