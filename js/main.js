@@ -359,7 +359,7 @@ function FormRegex() {
     const emailInput = document.getElementById("e-mail");
     const messageInput = document.getElementById("message");
 
-    //ovo nam sluzi da vidimo da li elemnti forme postome u DOMU, ako ne vraca null i nece izbaciti gresku
+    //ovo nam sluzi da vidimo da li elemnti forme postoje u DOMU, ako ne vraca null i nece izbaciti gresku
     if (!nameInput || !surnameInput || !emailInput || !messageInput) return;
 
     const nameRegex = /^[A-Za-zČĆŽŠĐčćžšđ ]{1,20}$/;
@@ -549,4 +549,5 @@ function FormRegex() {
 }
 
 FormRegex();
+
 
