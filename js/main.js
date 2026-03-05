@@ -2,7 +2,7 @@
 const navLinks = [
     { text: "Home", href: "index.html" },
     { text: "About", href: "index.html#about" },
-    { text: "Cars", href: "index.html#cars-container" },
+    { text: "Cars", href: "index.html#cars-section" },
     { text: "Contact", href: "contact.html" },
     { text: "Author", href: "author.html" },
     { icon: "fa-regular fa-file-lines", href: "dokumentacija.pdf" },
@@ -65,7 +65,7 @@ const cars = [
 const footerLinks = [
     { text: "Home", href: "index.html" },
     { text: "About", href: "index.html#about" },
-    { text: "Cars", href: "index.html#cars-container" },
+    { text: "Cars", href: "index.html#cars-section" },
     { text: "Contact", href: "contact.html" },
     { text: "Author", href: "author.html" }
 ];

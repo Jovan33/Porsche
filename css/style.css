@@ -452,6 +452,7 @@ form span {
 }
 .shade {
     background-color: #212529; 
+    position: fixed;
 }
 @media (max-width:768px){
     .shade{
