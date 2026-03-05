@@ -247,7 +247,7 @@ select option {
     top: 150px;
     left: 50px;
     z-index: 1;
-    color: black;
+    color: #212529;
     opacity: 1;
     transition: opacity 0.6s ease;
 }
@@ -279,7 +279,7 @@ img {
     bottom: 50px;
     right: 50px;
     z-index: 1;
-    color: black;
+    color: #212529;
     opacity: 1;
     transition: opacity 0.6s ease;
 }
