@@ -51,7 +51,7 @@
             "cubeColor": "#e21e19",
             "podiums" : 2,
             "topSpeed" : 300,
-            "sponsor": ["Michelin","F.A.T.","WeatherTech"]
+            "sponsor": ["Michelin", "F.A.T.", "WeatherTech"]
         },
         {
             "image": "img/car92.png",
@@ -62,7 +62,7 @@
             "cubeColor": "#009639",
             "podiums" : 4,
             "topSpeed" : 300,
-            "sponsor": ["Goodyear", "WeatherTech","Tag Heuer"]
+            "sponsor": ["Goodyear", "WeatherTech", "Tag Heuer"]
         },
         {
             "image": "img/car85.png",
@@ -73,7 +73,7 @@
             "cubeColor": "#009639",
             "podiums" : 0,
             "topSpeed" : 290,
-            "sponsor": ["Goodyear", "WeatherTech","Mobil 1"]
+            "sponsor": ["Goodyear", "WeatherTech", "Mobil 1"]
         }
     ],
     "footerLinks": [
