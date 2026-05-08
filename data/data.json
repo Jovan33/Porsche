@@ -51,7 +51,7 @@
             "cubeColor": "#e21e19",
             "podiums" : 2,
             "topSpeed" : 300,
-            "sponsor": ["F.A.T.", "Goodyear", "WeatherTech"]
+            "sponsor": ["Michelin","F.A.T.","WeatherTech"]
         },
         {
             "image": "img/car92.png",
