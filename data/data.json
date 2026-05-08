@@ -1,0 +1,113 @@
+{
+    "navLinks": [
+        { "text": "Home", "href": "index.html" },
+        { "text": "About", "href": "index.html#about" },
+        { "text": "Cars", "href": "index.html#cars-section" },
+        { "text": "Contact", "href": "contact.html" },
+        { "text": "Author", "href": "author.html" },
+        { "icon": "fa-regular fa-file-lines", "href": "dokumentacija.pdf" },
+        { "icon": "fa-solid fa-download", "href": "Porsche.rar" }
+    ],
+    "cars": [
+        {
+            "image": "img/car4.png",
+            "number": "#4",
+            "alt": "#4",
+            "team": "Porsche Penske Motorsport",
+            "category": "Hypercar",
+            "cubeColor": "#e21e19",
+            "podiums" : 5,
+            "topSpeed" : 320,
+            "sponsor": ["Michelin", "Mobil 1", "Tag Heuer"]
+        },
+        {
+            "image": "img/car5.png",
+            "number": "#5",
+            "alt": "#5",
+            "team": "Porsche Penske Motorsport",
+            "category": "Hypercar",
+            "cubeColor": "#e21e19",
+            "podiums" : 3,
+            "topSpeed" : 310,
+            "sponsor": ["Michelin", "Mobil 1", "Tag Heuer"]
+        },
+        {
+            "image": "img/car6.png",
+            "number": "#6",
+            "alt": "#6",
+            "team": "Porsche Penske Motorsport",
+            "category": "Hypercar",
+            "cubeColor": "#e21e19",
+            "podiums" : 1,
+            "topSpeed" : 305,
+            "sponsor": ["Michelin", "Mobil 1", "Tag Heuer"]
+        },
+        {
+            "image": "img/car99.png",
+            "number": "#99",
+            "alt": "#99",
+            "team": "Proton</br>Cmmpetition",
+            "category": "Hypercar",
+            "cubeColor": "#e21e19",
+            "podiums" : 2,
+            "topSpeed" : 300,
+            "sponsor": ["F.A.T.", "Goodyear", "WeatherTech"]
+        },
+        {
+            "image": "img/car92.png",
+            "number": "#92",
+            "alt": "#92",
+            "team": "Manthey 1st</br>Phorm",
+            "category": "LMGT3",
+            "cubeColor": "#009639",
+            "podiums" : 4,
+            "topSpeed" : 300,
+            "sponsor": ["Goodyear", "WeatherTech","Tag Heuer"]
+        },
+        {
+            "image": "img/car85.png",
+            "number": "#85",
+            "alt": "#85",
+            "team": "Iron Dames",
+            "category": "LMGT3",
+            "cubeColor": "#009639",
+            "podiums" : 0,
+            "topSpeed" : 290,
+            "sponsor": ["Goodyear", "WeatherTech","Mobil 1"]
+        }
+    ],
+    "footerLinks": [
+        { "text": "Home", "href": "index.html" },
+        { "text": "About", "href": "index.html#about" },
+        { "text": "Cars", "href": "index.html#cars-section" },
+        { "text": "Contact", "href": "contact.html" },
+        { "text": "Author", "href": "author.html" }
+    ],
+    "footerContact": [
+        { "icon": "fa fa-phone", "text": "+381 631284792" },
+        { "icon": "fa fa-envelope", "text": "contact@porsche.de" },
+        { "icon": "fa-regular fa-compass", "text": "Zdravka Celara 8, Belgrade, Serbia" }
+    ],
+    "socialLinks": [
+        { "icon": "fa-brands fa-instagram", "href": "https://www.instagram.com" },
+        { "icon": "fa-brands fa-youtube", "href": "https://www.youtube.com" },
+        { "icon": "fa-brands fa-github", "href": "https://github.com" }
+    ],
+    "carouselImg": [
+        {
+            "image": "img/CoA.jpg",
+            "slogan1": "Driven by Dreams",
+            "slogan2": "Porsche #Raceborn"
+        },
+        {
+            "image": "img/manthey-blue.jpg",
+            "slogan1": "911 GT3 R",
+            "slogan2": "LMGT3"
+        },
+        {
+            "image": "img/manthey-pink.jpg",
+            "slogan1": "564 hp",
+            "slogan2": "290 km/h"
+        }
+    ]
+}

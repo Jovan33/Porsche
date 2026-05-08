@@ -1,107 +1,44 @@
-//nav linkovi
-const navLinks = [
-    { text: "Home", href: "index.html" },
-    { text: "About", href: "index.html#about" },
-    { text: "Cars", href: "index.html#cars-section" },
-    { text: "Contact", href: "contact.html" },
-    { text: "Author", href: "author.html" },
-    { icon: "fa-regular fa-file-lines", href: "dokumentacija.pdf" },
-    { icon: "fa-solid fa-download", href: "Porsche.rar" }
-];
+//Promenljive za podatke
+let navLinks = [];
+let cars = [];
+let footerLinks = [];
+let footerContact = [];
+let socialLinks = [];
+let carouselImg = [];
 
-//wec kola
-const cars = [
-    {
-        image: "img/car4.png",
-        number: "#4",
-        alt: "#4",
-        team: "Porsche Penske Motorsport",
-        category: "Hypercar",
-        cubeColor: "#e21e19"
-    },
-    {
-        image: "img/car5.png",
-        number: "#5",
-        alt: "#5",
-        team: "Porsche Penske Motorsport",
-        category: "Hypercar",
-        cubeColor: "#e21e19"
-    },
-    {
-        image: "img/car6.png",
-        number: "#6",
-        alt: "#6",
-        team: "Porsche Penske Motorsport",
-        category: "Hypercar",
-        cubeColor: "#e21e19"
-    },
-    {
-        image: "img/car99.png",
-        number: "#99",
-        alt: "#99",
-        team: "Proton</br>Cmmpetition",
-        category: "Hypercar",
-        cubeColor: "#e21e19"
-    },
-    {
-        image: "img/car92.png",
-        number: "#92",
-        alt: "#92",
-        team: "Manthey 1st</br>Phorm",
-        category: "LMGT3",
-        cubeColor: "#009639"
-    },
-    {
-        image: "img/car85.png",
-        number: "#85",
-        alt: "#85",
-        team: "Iron Dames",
-        category: "LMGT3",
-        cubeColor: "#009639"
-    }
-];
+//ajax callback
+function loadJSONData() {
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", "data/data.json", true);
+    xhr.onload = function () {
+        if (this.status === 200) {
+            const data = JSON.parse(this.responseText);
+            navLinks = data.navLinks;
+            cars = data.cars;
+            footerLinks = data.footerLinks;
+            footerContact = data.footerContact;
+            socialLinks = data.socialLinks;
+            carouselImg = data.carouselImg;
+            
+            //pozivamo funkcije za generisanje
+            generateNav();
+            generateFooter();
+            
+            const initialClass = classFilter ? classFilter.value : "all";
+            const initialSponsor = sponsorFilter ? sponsorFilter.value : "all";
+            const initialSort = sortFilter ? sortFilter.value : "all";
+            
+            generateCars(initialClass, initialSponsor, initialSort, true);
+            if (classFilter && sponsorFilter) updateFilterOptions();
+            animateCars();
+            Carousel();
+        }
+    };
+    xhr.send();
+}
 
-//footer linkovi
-const footerLinks = [
-    { text: "Home", href: "index.html" },
-    { text: "About", href: "index.html#about" },
-    { text: "Cars", href: "index.html#cars-section" },
-    { text: "Contact", href: "contact.html" },
-    { text: "Author", href: "author.html" }
-];
-
-//footer kontakt sekcija
-const footerContact = [
-    { icon: "fa fa-phone", text: "+381 631284792" },
-    { icon: "fa fa-envelope", text: "contact@porsche.de" },
-    { icon: "fa-regular fa-compass", text: "Zdravka Celara 8, Belgrade, Serbia" }
-];
-
-//footer socijalne mreze sekcija
-const socialLinks = [
-    { icon: "fa-brands fa-instagram", href: "https://www.instagram.com" },
-    { icon: "fa-brands fa-youtube", href: "https://www.youtube.com" },
-    { icon: "fa-brands fa-github", href: "https://github.com" }
-];
-
-//carousel slike
-const carouselImg = [
-    {
-        image: "img/CoA.jpg",
-        slogan1: "Driven by Dreams",
-        slogan2: "Porsche #Raceborn"
-    },
-    {
-        image: "img/manthey-blue.jpg",
-        slogan1: "911 GT3 R",
-        slogan2: "LMGT3"
-    },
-    {
-        image: "img/manthey-pink.jpg",
-        slogan1: "564 hp",
-        slogan2: "290 km/h"
-    }
-];
+//pozivamo ajax i ucitavamo podatke
+loadJSONData();
 
 //Hamburger meni zatvara se kad se klikne na link
 const hamburger = document.querySelector(".hamburger");
@@ -240,21 +177,68 @@ function generateFooter() {
         </div>
     `;
 }
+let currentVisibleCars = 2; //koliko inicijalno prikazujemo automobila
+
 //generisemo automobile sa filterom
-function generateCars(filter = "all") {
+function generateCars(classFilterVal = "all", sponsorFilterVal = "all", sortFilterVal = "all", reset = true) {
     const carsContainer = document.getElementById("cars-container");
     if (!carsContainer || cars.length === 0) return;
 
-    //briem predhodni row da se ne duplicira beskonacno nakon klika na filter
-    const Row = carsContainer.querySelector(".row");
-    if (Row) Row.remove();
+    if (reset) {
+        currentVisibleCars = 2;
+    }
 
-    const filtered = filter === "all" ? cars : cars.filter(car => car.category === filter);
+    let filtered = cars.filter(car => {
+        const classMatch = classFilterVal === "all" || car.category === classFilterVal;
+        
+        let sponsorMatch = sponsorFilterVal === "all";
+        if (!sponsorMatch && car.sponsor) {
+            //sponsor mapiranje
+            const sponsorMap = {
+                "michelin": "Michelin",
+                "mobil1": "Mobil 1",
+                "tagheuer": "Tag Heuer",
+                "fat": "F.A.T. International",
+                "goodyear": "Goodyear",
+                "weathertech": "WeatherTech"
+            };
+            const exactSponsor = sponsorMap[sponsorFilterVal.toLowerCase()];
+            if (exactSponsor && Array.isArray(car.sponsor)) {
+                sponsorMatch = car.sponsor.includes(exactSponsor);
+            } else if (exactSponsor) {
+                sponsorMatch = car.sponsor === exactSponsor;
+            }
+        }
+        
+        return classMatch && sponsorMatch;
+    });
 
-    const row = document.createElement("div");
-    row.className = "row";
+    if (sortFilterVal === "podiumsDesc") {
+        filtered = filtered.sort((a, b) => b.podiums - a.podiums);
+    } else if (sortFilterVal === "podiumsAsc") {
+        filtered = filtered.sort((a, b) => a.podiums - b.podiums);
+    } else if (sortFilterVal === "topSpeedDesc") {
+        filtered = filtered.sort((a, b) => b.topSpeed - a.topSpeed);
+    } else if (sortFilterVal === "topSpeedAsc") {
+        filtered = filtered.sort((a, b) => a.topSpeed - b.topSpeed);
+    }
+    
+    const visibleCars = reset ? filtered.slice(0, currentVisibleCars) : filtered.slice(currentVisibleCars - 2, currentVisibleCars);
 
-    filtered.forEach(car => {
+    let row = carsContainer.querySelector(".row");
+    
+    if (reset) {
+        if (row) row.remove();
+        
+        row = document.createElement("div");
+        row.className = "row";
+        carsContainer.appendChild(row);
+    }
+
+    const existingLoadMore = document.getElementById("load-more-container");
+    if (existingLoadMore) existingLoadMore.remove();
+
+    visibleCars.forEach(car => {
         const teamCard = document.createElement("div");
         teamCard.className = "col-12 col-md-6 mb-3";
 
@@ -280,7 +264,26 @@ function generateCars(filter = "all") {
         row.appendChild(teamCard);
     });
 
-    carsContainer.appendChild(row);
+    if (currentVisibleCars < filtered.length) {
+        const loadMoreContainer = document.createElement("div");
+        loadMoreContainer.id = "load-more-container";
+        loadMoreContainer.className = "d-flex align-items-center justify-content-center mt-4 mb-4";
+        loadMoreContainer.innerHTML = `
+            <hr class="flex-grow-1" style="height: 2px; background-color: #dee2e6; border: none;">
+            <button id="load-more-btn" class="btn mx-3 text-uppercase fw-bold" style="background-color: #dee2e6; border-color: #dee2e6;">Load More</button>
+            <hr class="flex-grow-1" style="height: 2px; background-color: #dee2e6; border: none;">
+        `;
+        carsContainer.appendChild(loadMoreContainer);
+
+        document.getElementById("load-more-btn").addEventListener("click", () => {
+            currentVisibleCars += 2;
+            const currentClassValue = document.getElementById("class-filter") ? document.getElementById("class-filter").value : "all";
+            const currentSponsorValue = document.getElementById("sponsor-filter") ? document.getElementById("sponsor-filter").value : "all";
+            const currentSortValue = document.getElementById("sortBy") ? document.getElementById("sortBy").value : "all";
+            generateCars(currentClassValue, currentSponsorValue, currentSortValue, false);
+            animateCars();
+        });
+    }
 }
 
 //animacija kartica kad se pojave u viewportu
@@ -301,19 +304,84 @@ function animateCars() {
     Teamcards.forEach(card => observer.observe(card));
 }
 
-//funkcije pozivamo da generisemo navigaciju, futer i kartice automobila kao i njihove animacije
-generateNav();
-generateFooter();
-generateCars();
-animateCars();
-
-//filter klasa
+//filter klase
 const classFilter = document.getElementById("class-filter");
-if (classFilter) {
-    classFilter.addEventListener("change", () => {
-        generateCars(classFilter.value);
-        animateCars();
+const sponsorFilter = document.getElementById("sponsor-filter");
+
+function updateFilterOptions() {
+    const classVal = classFilter.value;
+    const sponsorVal = sponsorFilter.value;
+
+    const sponsorMap = {
+        "michelin": "Michelin",
+        "mobil1": "Mobil 1",
+        "tagheuer": "Tag Heuer",
+        "fat": "F.A.T. International",
+        "goodyear": "Goodyear",
+        "weathertech": "WeatherTech"
+    };
+
+    //updejtujemo sponsor filter opcije na osnovu klase
+    Array.from(sponsorFilter.options).forEach(opt => {
+        if (opt.value === "all") return;
+        opt.style.display = "none";
+        opt.hidden = true;
+        const requiredSponsor = sponsorMap[opt.value];
+        const hasCarMatch = cars.some(car => {
+            const classMatch = classVal === "all" || car.category === classVal;
+            const spMatch = car.sponsor && car.sponsor.includes(requiredSponsor);
+            return classMatch && spMatch;
+        });
+        if (hasCarMatch) {
+            opt.style.display = "block";
+            opt.hidden = false;
+        } else if (sponsorVal === opt.value) {
+            sponsorFilter.value = "all"; //resetujemo ako trenutno izabrani sponsor vise nije validan
+        }
     });
+
+    //updejtujemo klasu filter opcije na osnovu sponzora
+    const activeSponsorVal = sponsorFilter.value; //cuvamo aktivnu vrednost sponzora
+    Array.from(classFilter.options).forEach(opt => {
+        if (opt.value === "all") return;
+        opt.style.display = "none";
+        opt.hidden = true;
+        const requiredClass = opt.value;
+        const requiredSponsor = activeSponsorVal !== "all" ? sponsorMap[activeSponsorVal] : null;
+        const hasCarMatch = cars.some(car => {
+            const classMatch = car.category === requiredClass;
+            const spMatch = !requiredSponsor || (car.sponsor && car.sponsor.includes(requiredSponsor));
+            return classMatch && spMatch;
+        });
+        if (hasCarMatch) {
+            opt.style.display = "block";
+            opt.hidden = false;
+        } else if (classVal === opt.value) {
+            classFilter.value = "all"; //resetujemo ako trenutno izabrana klasa vise nije validna
+        }
+    });
+}
+
+const sortFilter = document.getElementById("sortBy");
+
+function handleFilterChange() {
+    if (classFilter && sponsorFilter) updateFilterOptions();
+    
+    generateCars(
+        classFilter ? classFilter.value : "all", 
+        sponsorFilter ? sponsorFilter.value : "all", 
+        sortFilter ? sortFilter.value : "all", 
+        true
+    );
+    animateCars();
+}
+
+if (classFilter && sponsorFilter) {
+    classFilter.addEventListener("change", handleFilterChange);
+    sponsorFilter.addEventListener("change", handleFilterChange);
+}
+if (sortFilter) {
+    sortFilter.addEventListener("change", handleFilterChange);
 }
 
 //carousel menja slike
@@ -348,7 +416,6 @@ function Carousel() {
 
     setInterval(changeSlide, 6000);
 }
-Carousel();
 
 //funkcija validacija forme regex za validiranje
 //blur event da se validacija pokrene kad korisnik izadje iz inputa
