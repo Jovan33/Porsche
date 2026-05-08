@@ -1,4 +1,4 @@
-//Promenljive za podatke
+//promenljive za podatke
 let navLinks = [];
 let cars = [];
 let footerLinks = [];
@@ -23,6 +23,16 @@ function loadJSONData() {
             //pozivamo funkcije za generisanje
             generateNav();
             generateFooter();
+
+            if (classFilter && localStorage.getItem("classFilter")) {
+                classFilter.value = localStorage.getItem("classFilter");
+            }
+            if (sponsorFilter && localStorage.getItem("sponsorFilter")) {
+                sponsorFilter.value = localStorage.getItem("sponsorFilter");
+            }
+            if (sortFilter && localStorage.getItem("sortFilter")) {
+                sortFilter.value = localStorage.getItem("sortFilter");
+            }
             
             const initialClass = classFilter ? classFilter.value : "all";
             const initialSponsor = sponsorFilter ? sponsorFilter.value : "all";
@@ -55,7 +65,7 @@ navBar.addEventListener("click", (ham) => {
 });
 
 //gledamo viewport da li je u sekciji cars/about da bi stavili thispage da promeni boju za hamburger meni dafault stavlja se na home
-function Hamburgerview() {
+function hamburgerView() {
     const carsContainer = document.getElementById("cars-container");
     const aboutSection = document.getElementById("about");
     if (!carsContainer && !aboutSection) return;
@@ -107,7 +117,7 @@ function Hamburgerview() {
     if (carsContainer) observer.observe(carsContainer);
     if (aboutSection) observer.observe(aboutSection);
 }
-Hamburgerview();
+hamburgerView();
 
 //uzimamo trenutnu stranicu da stavimo active(this page) klasu u navu
 function getCurrentPage() {
@@ -130,7 +140,7 @@ function generateNav() {
             : `<i class="${link.icon}"></i>`;
         return `
             <li class="nav-item${isActive ? ' thispage' : ''}">
-                <a href="${link.href}" class="nav-link"${isActive ? ' aria-current="page"' : ''}>${content}</a>
+                <a href="${link.href}" class="nav-link" draggable="false"${isActive ? ' aria-current="page"' : ''}>${content}</a>
             </li>
         `;
     }).join('');
@@ -366,7 +376,11 @@ const sortFilter = document.getElementById("sortBy");
 
 function handleFilterChange() {
     if (classFilter && sponsorFilter) updateFilterOptions();
-    
+   //local storage pamti filter i sort opcije 
+    if (classFilter) localStorage.setItem("classFilter", classFilter.value);
+    if (sponsorFilter) localStorage.setItem("sponsorFilter", sponsorFilter.value);
+    if (sortFilter) localStorage.setItem("sortFilter", sortFilter.value);
+
     generateCars(
         classFilter ? classFilter.value : "all", 
         sponsorFilter ? sponsorFilter.value : "all", 
@@ -420,7 +434,7 @@ function Carousel() {
 //funkcija validacija forme regex za validiranje
 //blur event da se validacija pokrene kad korisnik izadje iz inputa
 //input event da se greska skine cim korisnik pocne da kuca
-function FormRegex() {
+function formRegex() {
     const nameInput = document.getElementById("name");
     const surnameInput = document.getElementById("surname");
     const emailInput = document.getElementById("e-mail");
@@ -472,7 +486,7 @@ function FormRegex() {
         });
     }
 
-    //Message validacija ne prikazuje se dok korisnik ne krene da kuca za ostale nam ne treba
+    //message validacija ne prikazuje se dok korisnik ne krene da kuca za ostale nam ne treba
     //ocigledno se vidi sta treba uraditi sa form kontrolom dal input ili radio dugmici
     validate(nameInput, nameRegex, "nameError", "Name is required", "Example: Kevin");
     validate(surnameInput, surnameRegex, "surnameError", "Surname is required", "Example: Estre");
@@ -614,4 +628,4 @@ function FormRegex() {
         });
     }
 }
-FormRegex();
+formRegex();
