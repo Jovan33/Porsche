@@ -89,10 +89,26 @@
             <div id="cars-container" class="py-8 py-lg-9 container mtopbot">
                 <div class="d-flex justify-content-center align-items-center gap-3 mb-7 mb-lg-5">
                     <h2 class="text-center text-uppercase fw-bold m-0">Porsche</h2>
+                    <select id="sortBy" class="class-filter text-uppercase">
+                        <option value="all" selected>Default Sort</option>
+                        <option value="podiumsDesc">Podiums (most - least)</option>
+                        <option value="podiumsAsc">Podiums (least - most)</option>
+                        <option value="topSpeedDesc">Speed (fast - slow)</option>
+                        <option value="topSpeedAsc">Speed (slow - fast)</option>
+                    </select>
                     <select id="class-filter" class="class-filter text-uppercase">
                         <option value="all" selected>All Classes</option>
                         <option value="Hypercar">Hypercar</option>
                         <option value="LMGT3">LMGT3</option>
+                    </select>
+                    <select id="sponsor-filter" class="class-filter text-uppercase">
+                        <option value="all" selected>All Sponsors</option>
+                        <option value="michelin" >Michelin</option>
+                        <option value="mobil1" >Mobil 1</option>
+                        <option value="tagheuer" >Tag Heuer</option>
+                        <option value="fat" >F.A.T.</option>
+                        <option value="goodyear" >Goodyear</option>
+                        <option value="weathertech" >WeatherTech</option>
                     </select>
                 </div>
             </div>
